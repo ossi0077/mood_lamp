@@ -2,12 +2,13 @@
 #define PIN        2
 #define NUMPIXELS 7
 #define bright 255
-#define dly 50
+#define dly 350
 
 #define tilt 12
 Adafruit_NeoPixel neo(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-int state = 0;
+int state;
 int n;
+int state2 = 0;
 
 void setup() {
     Serial.begin(9600);
@@ -23,53 +24,100 @@ void setup() {
 void loop()
 {
     state = digitalRead(tilt);
-    if (state == 1)
+    if (state == 0)
     {
-        state = state + digitalRead(tilt);
-        if (state != 1)
+        if (state2 == 0)
         {
-            state = 0;
+            n = random(0, 7);
+            randomColor(n);
+            state2++;
+            delay(dly);
         }
-        else if (state == 1)
+        else if (state2 == 1)
         {
-            n = random(0, 3);
-            if (n == 1)
-                RED();
-            else if (n == 2)
-                GREEN();
-            else
-                BLUE();
+            allOFF();
+            state2 = 0;
+            delay(dly);
         }
     }
 }
 
-void RED()
+void allOFF()
 {
-    Serial.println("RED 함수 호출");
+    Serial.println("OFF");
     for (int i = 0; i < NUMPIXELS; i++)
     {
-        neo.setPixelColor(i, bright, 0, 0);
-        neo.show();
+        neo.setPixelColor(i, 0, 0, 0);
     }
-    state = 0;
+    neo.show();
 }
-void GREEN()
+void randomColor(int x)
 {
-    Serial.println("GREEN 함수 호출");
-    for (int i = 0; i < NUMPIXELS; i++)
+    switch (x)
     {
-        neo.setPixelColor(i, 0, bright, 0);
+    case 0: //white
+        Serial.println("WHITE");
+        for (int i = 0; i < NUMPIXELS; i++)
+        {
+            neo.setPixelColor(i, bright, bright, bright);
+        }
         neo.show();
-    }
-    state = 0;
-}
-void BLUE()
-{
-    Serial.println("BLUE 함수 호출");
-    for (int i = 0; i < NUMPIXELS; i++)
-    {
-        neo.setPixelColor(i, 0, 0, bright);
+        break;
+
+    case 1: //red
+        Serial.println("RED");
+        for (int i = 0; i < NUMPIXELS; i++)
+        {
+            neo.setPixelColor(i, bright, 0, 0);
+        }
         neo.show();
+        break;
+
+    case 2://green
+        Serial.println("GREEN");
+        for (int i = 0; i < NUMPIXELS; i++)
+        {
+            neo.setPixelColor(i, 0, bright, 0);
+        }
+        neo.show();
+        break;
+
+    case 3://blue
+        Serial.println("BLUE");
+        for (int i = 0; i < NUMPIXELS; i++)
+        {
+            neo.setPixelColor(i, 0, 0, bright);
+        }
+        neo.show();
+        break;
+
+    case 4://yellow
+        Serial.println("yellow");
+        for (int i = 0; i < NUMPIXELS; i++)
+        {
+            neo.setPixelColor(i, bright, bright, 0);
+        }
+        neo.show();
+        break;
+
+    case 5://magenta
+        Serial.println("magenta");
+        for (int i = 0; i < NUMPIXELS; i++)
+        {
+            neo.setPixelColor(i, bright, 0, bright);
+        }
+        neo.show();
+        break;
+
+    case 6://cyan
+        Serial.println("cyan");
+        for (int i = 0; i < NUMPIXELS; i++)
+        {
+            neo.setPixelColor(i, 0, bright, bright);
+        }
+        neo.show();
+        break;
+    default:
+        break;
     }
-    state = 0;
 }
