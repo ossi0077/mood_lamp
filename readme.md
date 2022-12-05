@@ -5,6 +5,11 @@
 
 - tilt 센서를 45도로 기울여 충격센서 처럼 사용
 
+## 사용 부품
+- Arduino Nano
+- Tilt sensor/SW-520D
+- NeoPixel 원형
+
 ## 라이브러리
 - Adafruit NeoPixel
 
