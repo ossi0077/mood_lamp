@@ -5,6 +5,12 @@
 
 - tilt 센서를 45도로 기울여 충격센서 처럼 사용
 
+## 결선이미지
+<img src="./img/schematic.png" width="50%" height="50%">
+
+## 제품사진
+<img src="./img/1st_test/KakaoTalk_20220930_200137665_01.jpg" width="50%" height="50%">
+
 ## 일자별 진행상황
 |날짜|진행사항|특이사항|
 |--|--|--|
@@ -12,3 +18,4 @@
 |2022/10/04|tilt 센서 사용으로 인한 tilt_random_code.cpp 작성|tilt센서를 눕혀서 사용해도 무방하여 사이즈 호환 가능|
 |2022/10/07|tilt_random_code.cpp 작성, tilt 감도 가장 낮게 설정|(empty)|
 |2022/10/26|main_code.ino 업로드||
+|2022/12/05|결선이미지, 제품사진 추가|Update readme|
