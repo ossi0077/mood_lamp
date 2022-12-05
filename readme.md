@@ -5,6 +5,9 @@
 
 - tilt 센서를 45도로 기울여 충격센서 처럼 사용
 
+## 라이브러리
+- Adafruit NeoPixel
+
 ## 결선이미지
 <img src="./img/schematic.png" width="50%" height="50%">
 
