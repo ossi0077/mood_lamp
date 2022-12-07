@@ -24,6 +24,6 @@
 |--|--|--|
 |2022/09/30|시제품 제작 완료|tilt 센서 사이즈 호환불가로 제외하여 제작|
 |2022/10/04|tilt 센서 사용으로 인한 tilt_random_code.cpp 작성|tilt센서를 눕혀서 사용해도 무방하여 사이즈 호환 가능|
-|2022/10/07|tilt_random_code.cpp 작성, tilt 감도 가장 낮게 설정|(empty)|
+|2022/10/07|tilt_random_code.cpp 작성, tilt 감도 가장 낮게 설정||
 |2022/10/26|main_code.ino 업로드||
 |2022/12/05|결선이미지, 제품사진 추가|Update readme|
